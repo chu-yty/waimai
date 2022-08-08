@@ -25,4 +25,13 @@ public class MySession {
             throw new RuntimeException(e);
         }
     }
+    public static <T> T getMapper(Class<T> cls)
+    {
+
+        return mysession.getMapper(cls);
+    }
+    public static void commit()
+    {
+        mysession.commit();
+    }
 }

@@ -1,42 +1,26 @@
 package com.my.waimai.entity;
 
-import af.sql.annotation.AFCOLUMNS; 
-import af.sql.annotation.AFTABLE; 
+
 import java.util.Date; 
 
-/** 本类由 POJO生成器 自动生成于 2022-08-07 10:39:58
-    作者：阿发你好      官网: http://afanihao.cn 
-*/ 
-
-/** INSERT语句 ( 预处理方式 ) 
-  INSERT INTO `shopping_cart`
-        (`id`, `name`, `image`, `user_id`, `dish_id`, `setmeal_id`, `dish_flavor`, `number`, `amount`, `create_time`) 
-  VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
-*/ 
-
-/** INSERT语句 ( MyBatis方式 ) 
-  INSERT INTO `shopping_cart`
-        (`id`, `name`, `image`, `user_id`, `dish_id`, `setmeal_id`, `dish_flavor`, `number`, `amount`, `create_time`) 
-  VALUES(#{id}, #{name}, #{image}, #{user_id}, #{dish_id}, #{setmeal_id}, #{dish_flavor}, #{number}, #{amount}, #{create_time}) 
-
+/**
   自增主键: 无
 */ 
 
-@AFTABLE(name="shopping_cart")  
-@AFCOLUMNS() 
+
 public class ShoppingCart 
 { 
  
 	public Long id ; 
 	public String name ; 
 	public String image ; 
-	public Long user_id ; 
-	public Long dish_id ; 
-	public Long setmeal_id ; 
-	public String dish_flavor ; 
+	public Long userId;
+	public Long dishId;
+	public Long setmealId;
+	public String dishFlavor;
 	public Integer number ; 
 	public String amount ; 
-	public Date create_time ; 
+	public Date createTime;
 
 
 	public void setId(Long id)
@@ -63,37 +47,37 @@ public class ShoppingCart
 	{
 		return this.image;
 	}
-	public void setUser_id(Long user_id)
+	public void setUserId(Long userId)
 	{
-		this.user_id=user_id;
+		this.userId = userId;
 	}
-	public Long getUser_id()
+	public Long getUserId()
 	{
-		return this.user_id;
+		return this.userId;
 	}
-	public void setDish_id(Long dish_id)
+	public void setDishId(Long dishId)
 	{
-		this.dish_id=dish_id;
+		this.dishId = dishId;
 	}
-	public Long getDish_id()
+	public Long getDishId()
 	{
-		return this.dish_id;
+		return this.dishId;
 	}
-	public void setSetmeal_id(Long setmeal_id)
+	public void setSetmealId(Long setmealId)
 	{
-		this.setmeal_id=setmeal_id;
+		this.setmealId = setmealId;
 	}
-	public Long getSetmeal_id()
+	public Long getSetmealId()
 	{
-		return this.setmeal_id;
+		return this.setmealId;
 	}
-	public void setDish_flavor(String dish_flavor)
+	public void setDishFlavor(String dishFlavor)
 	{
-		this.dish_flavor=dish_flavor;
+		this.dishFlavor = dishFlavor;
 	}
-	public String getDish_flavor()
+	public String getDishFlavor()
 	{
-		return this.dish_flavor;
+		return this.dishFlavor;
 	}
 	public void setNumber(Integer number)
 	{
@@ -111,13 +95,13 @@ public class ShoppingCart
 	{
 		return this.amount;
 	}
-	public void setCreate_time(Date create_time)
+	public void setCreateTime(Date createTime)
 	{
-		this.create_time=create_time;
+		this.createTime = createTime;
 	}
-	public Date getCreate_time()
+	public Date getCreateTime()
 	{
-		return this.create_time;
+		return this.createTime;
 	}
 
 } 

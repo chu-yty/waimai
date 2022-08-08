@@ -1,46 +1,29 @@
 package com.my.waimai.entity;
 
-import af.sql.annotation.AFCOLUMNS; 
-import af.sql.annotation.AFTABLE; 
 import java.util.Date; 
 
-/** 本类由 POJO生成器 自动生成于 2022-08-07 10:39:58
-    作者：阿发你好      官网: http://afanihao.cn 
-*/ 
-
-/** INSERT语句 ( 预处理方式 ) 
-  INSERT INTO `orders`
-        (`id`, `number`, `status`, `user_id`, `address_book_id`, `order_time`, `checkout_time`, `pay_method`, `amount`, `remark`, `phone`, `address`, `user_name`, `consignee`) 
-  VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
-*/ 
-
-/** INSERT语句 ( MyBatis方式 ) 
-  INSERT INTO `orders`
-        (`id`, `number`, `status`, `user_id`, `address_book_id`, `order_time`, `checkout_time`, `pay_method`, `amount`, `remark`, `phone`, `address`, `user_name`, `consignee`) 
-  VALUES(#{id}, #{number}, #{status}, #{user_id}, #{address_book_id}, #{order_time}, #{checkout_time}, #{pay_method}, #{amount}, #{remark}, #{phone}, #{address}, #{user_name}, #{consignee}) 
-
+/**
   自增主键: 无
 */ 
 
-@AFTABLE(name="orders")  
-@AFCOLUMNS() 
+
 public class Orders 
 { 
  
-	public Long id ; 
-	public String number ; 
-	public Integer status ; 
-	public Long user_id ; 
-	public Long address_book_id ; 
-	public Date order_time ; 
-	public Date checkout_time ; 
-	public Integer pay_method ; 
-	public String amount ; 
-	public String remark ; 
-	public String phone ; 
-	public String address ; 
-	public String user_name ; 
-	public String consignee ; 
+	private Long id ;
+	private String number ;
+	private Integer status ;
+	private Long userId;
+	private Long addressBookId;
+	private Date orderTime;
+	private Date checkoutTime;
+	private Integer payMethod;
+	private String amount ;
+	private String remark ;
+	private String phone ;
+	private String address ;
+	private String userName;
+	private String consignee ;
 
 
 	public void setId(Long id)
@@ -67,45 +50,45 @@ public class Orders
 	{
 		return this.status;
 	}
-	public void setUser_id(Long user_id)
+	public void setUserId(Long userId)
 	{
-		this.user_id=user_id;
+		this.userId = userId;
 	}
-	public Long getUser_id()
+	public Long getUserId()
 	{
-		return this.user_id;
+		return this.userId;
 	}
-	public void setAddress_book_id(Long address_book_id)
+	public void setAddressBookId(Long addressBookId)
 	{
-		this.address_book_id=address_book_id;
+		this.addressBookId = addressBookId;
 	}
-	public Long getAddress_book_id()
+	public Long getAddressBookId()
 	{
-		return this.address_book_id;
+		return this.addressBookId;
 	}
-	public void setOrder_time(Date order_time)
+	public void setOrderTime(Date orderTime)
 	{
-		this.order_time=order_time;
+		this.orderTime = orderTime;
 	}
-	public Date getOrder_time()
+	public Date getOrderTime()
 	{
-		return this.order_time;
+		return this.orderTime;
 	}
-	public void setCheckout_time(Date checkout_time)
+	public void setCheckoutTime(Date checkoutTime)
 	{
-		this.checkout_time=checkout_time;
+		this.checkoutTime = checkoutTime;
 	}
-	public Date getCheckout_time()
+	public Date getCheckoutTime()
 	{
-		return this.checkout_time;
+		return this.checkoutTime;
 	}
-	public void setPay_method(Integer pay_method)
+	public void setPayMethod(Integer payMethod)
 	{
-		this.pay_method=pay_method;
+		this.payMethod = payMethod;
 	}
-	public Integer getPay_method()
+	public Integer getPayMethod()
 	{
-		return this.pay_method;
+		return this.payMethod;
 	}
 	public void setAmount(String amount)
 	{
@@ -139,13 +122,13 @@ public class Orders
 	{
 		return this.address;
 	}
-	public void setUser_name(String user_name)
+	public void setUserName(String userName)
 	{
-		this.user_name=user_name;
+		this.userName = userName;
 	}
-	public String getUser_name()
+	public String getUserName()
 	{
-		return this.user_name;
+		return this.userName;
 	}
 	public void setConsignee(String consignee)
 	{

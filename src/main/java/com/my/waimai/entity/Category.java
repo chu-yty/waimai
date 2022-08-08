@@ -1,40 +1,26 @@
 package com.my.waimai.entity;
 
-import af.sql.annotation.AFCOLUMNS; 
-import af.sql.annotation.AFTABLE; 
+
 import java.util.Date; 
 
-/** 本类由 POJO生成器 自动生成于 2022-08-07 10:39:58
-    作者：阿发你好      官网: http://afanihao.cn 
-*/ 
 
-/** INSERT语句 ( 预处理方式 ) 
-  INSERT INTO `category`
-        (`id`, `type`, `name`, `sort`, `create_time`, `update_time`, `create_user`, `update_user`) 
-  VALUES(?, ?, ?, ?, ?, ?, ?, ?) 
-*/ 
-
-/** INSERT语句 ( MyBatis方式 ) 
-  INSERT INTO `category`
-        (`id`, `type`, `name`, `sort`, `create_time`, `update_time`, `create_user`, `update_user`) 
-  VALUES(#{id}, #{type}, #{name}, #{sort}, #{create_time}, #{update_time}, #{create_user}, #{update_user}) 
+/**
 
   自增主键: 无
 */ 
 
-@AFTABLE(name="category")  
-@AFCOLUMNS() 
+
 public class Category 
 { 
  
-	public Long id ; 
-	public Integer type ; 
-	public String name ; 
-	public Integer sort ; 
-	public Date create_time ; 
-	public Date update_time ; 
-	public Long create_user ; 
-	public Long update_user ; 
+	private Long id ;
+	private Integer type ;
+	private String name ;
+	private Integer sort ;
+	private Date createTime;
+	private Date updateTime;
+	private Long createUser;
+	private Long updateUser;
 
 
 	public void setId(Long id)
@@ -69,37 +55,37 @@ public class Category
 	{
 		return this.sort;
 	}
-	public void setCreate_time(Date create_time)
+	public void setCreateTime(Date createTime)
 	{
-		this.create_time=create_time;
+		this.createTime = createTime;
 	}
-	public Date getCreate_time()
+	public Date getCreateTime()
 	{
-		return this.create_time;
+		return this.createTime;
 	}
-	public void setUpdate_time(Date update_time)
+	public void setUpdateTime(Date updateTime)
 	{
-		this.update_time=update_time;
+		this.updateTime = updateTime;
 	}
-	public Date getUpdate_time()
+	public Date getUpdateTime()
 	{
-		return this.update_time;
+		return this.updateTime;
 	}
-	public void setCreate_user(Long create_user)
+	public void setCreateUser(Long createUser)
 	{
-		this.create_user=create_user;
+		this.createUser = createUser;
 	}
-	public Long getCreate_user()
+	public Long getCreateUser()
 	{
-		return this.create_user;
+		return this.createUser;
 	}
-	public void setUpdate_user(Long update_user)
+	public void setUpdateUser(Long updateUser)
 	{
-		this.update_user=update_user;
+		this.updateUser = updateUser;
 	}
-	public Long getUpdate_user()
+	public Long getUpdateUser()
 	{
-		return this.update_user;
+		return this.updateUser;
 	}
 
 } 

@@ -1,7 +1,13 @@
 package com.my.waimai.entity;
 
 
-import java.util.Date; 
+
+
+
+import org.joda.time.DateTime;
+
+import java.util.Date;
+
 
 /**
   自增主键: 无
@@ -11,18 +17,18 @@ import java.util.Date;
 public class Employee 
 { 
  
-	public Long   id ;
-	public String name ; 
-	public String username ; 
-	public String password ; 
-	public String phone ; 
-	public String sex ; 
-	public String idNumber;
-	public Integer status ; 
-	public Date createTime;
-	public Date updateTime;
-	public Long createUser;
-	public Long updateUser;
+	private Long   id ;
+	private String name ;
+	private String username ;
+	private String password ;
+	private String phone ;
+	private String sex ;
+	private String idNumber;
+	private Integer status ;
+	private Date createTime;
+	private Date updateTime;
+	private Long createUser;
+	private Long updateUser;
 
 	public Long getId() {
 		return id;

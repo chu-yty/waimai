@@ -1,41 +1,24 @@
 package com.my.waimai.entity;
 
-import af.sql.annotation.AFCOLUMNS; 
-import af.sql.annotation.AFTABLE; 
-import java.util.Date; 
 
-/** 本类由 POJO生成器 自动生成于 2022-08-07 10:39:58
-    作者：阿发你好      官网: http://afanihao.cn 
-*/ 
-
-/** INSERT语句 ( 预处理方式 ) 
-  INSERT INTO `order_detail`
-        (`id`, `name`, `image`, `order_id`, `dish_id`, `setmeal_id`, `dish_flavor`, `number`, `amount`) 
-  VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?) 
-*/ 
-
-/** INSERT语句 ( MyBatis方式 ) 
-  INSERT INTO `order_detail`
-        (`id`, `name`, `image`, `order_id`, `dish_id`, `setmeal_id`, `dish_flavor`, `number`, `amount`) 
-  VALUES(#{id}, #{name}, #{image}, #{order_id}, #{dish_id}, #{setmeal_id}, #{dish_flavor}, #{number}, #{amount}) 
+/**
 
   自增主键: 无
 */ 
 
-@AFTABLE(name="order_detail")  
-@AFCOLUMNS() 
+
 public class OrderDetail 
 { 
  
-	public Long id ; 
-	public String name ; 
-	public String image ; 
-	public Long order_id ; 
-	public Long dish_id ; 
-	public Long setmeal_id ; 
-	public String dish_flavor ; 
-	public Integer number ; 
-	public String amount ; 
+	private Long id ;
+	private String name ;
+	private String image ;
+	private Long orderId;
+	private Long dishId;
+	private Long setmealId;
+	private String dishFlavor;
+	private Integer number ;
+	private String amount ;
 
 
 	public void setId(Long id)
@@ -62,37 +45,37 @@ public class OrderDetail
 	{
 		return this.image;
 	}
-	public void setOrder_id(Long order_id)
+	public void setOrderId(Long orderId)
 	{
-		this.order_id=order_id;
+		this.orderId = orderId;
 	}
-	public Long getOrder_id()
+	public Long getOrderId()
 	{
-		return this.order_id;
+		return this.orderId;
 	}
-	public void setDish_id(Long dish_id)
+	public void setDishId(Long dishId)
 	{
-		this.dish_id=dish_id;
+		this.dishId = dishId;
 	}
-	public Long getDish_id()
+	public Long getDishId()
 	{
-		return this.dish_id;
+		return this.dishId;
 	}
-	public void setSetmeal_id(Long setmeal_id)
+	public void setSetmealId(Long setmealId)
 	{
-		this.setmeal_id=setmeal_id;
+		this.setmealId = setmealId;
 	}
-	public Long getSetmeal_id()
+	public Long getSetmealId()
 	{
-		return this.setmeal_id;
+		return this.setmealId;
 	}
-	public void setDish_flavor(String dish_flavor)
+	public void setDishFlavor(String dishFlavor)
 	{
-		this.dish_flavor=dish_flavor;
+		this.dishFlavor = dishFlavor;
 	}
-	public String getDish_flavor()
+	public String getDishFlavor()
 	{
-		return this.dish_flavor;
+		return this.dishFlavor;
 	}
 	public void setNumber(Integer number)
 	{

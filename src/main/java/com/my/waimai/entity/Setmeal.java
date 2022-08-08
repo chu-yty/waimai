@@ -1,45 +1,29 @@
 package com.my.waimai.entity;
 
-import af.sql.annotation.AFCOLUMNS; 
-import af.sql.annotation.AFTABLE; 
+
 import java.util.Date; 
 
-/** 本类由 POJO生成器 自动生成于 2022-08-07 10:39:58
-    作者：阿发你好      官网: http://afanihao.cn 
-*/ 
-
-/** INSERT语句 ( 预处理方式 ) 
-  INSERT INTO `setmeal`
-        (`id`, `category_id`, `name`, `price`, `status`, `code`, `description`, `image`, `create_time`, `update_time`, `create_user`, `update_user`, `is_deleted`) 
-  VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
-*/ 
-
-/** INSERT语句 ( MyBatis方式 ) 
-  INSERT INTO `setmeal`
-        (`id`, `category_id`, `name`, `price`, `status`, `code`, `description`, `image`, `create_time`, `update_time`, `create_user`, `update_user`, `is_deleted`) 
-  VALUES(#{id}, #{category_id}, #{name}, #{price}, #{status}, #{code}, #{description}, #{image}, #{create_time}, #{update_time}, #{create_user}, #{update_user}, #{is_deleted}) 
-
+/**
   自增主键: 无
 */ 
 
-@AFTABLE(name="setmeal")  
-@AFCOLUMNS() 
+
 public class Setmeal 
 { 
  
-	public Long id ; 
-	public Long category_id ; 
-	public String name ; 
-	public String price ; 
-	public Integer status ; 
-	public String code ; 
-	public String description ; 
-	public String image ; 
-	public Date create_time ; 
-	public Date update_time ; 
-	public Long create_user ; 
-	public Long update_user ; 
-	public Integer is_deleted ; 
+	private Long id ;
+	private Long categoryId;
+	private String name ;
+	private String price ;
+	private Integer status ;
+	private String code ;
+	private String description ;
+	private String image ;
+	private Date createTime;
+	private Date updateTime;
+	private Long createUser;
+	private Long updateUser;
+	private Integer isDeleted;
 
 
 	public void setId(Long id)
@@ -50,13 +34,13 @@ public class Setmeal
 	{
 		return this.id;
 	}
-	public void setCategory_id(Long category_id)
+	public void setCategoryId(Long categoryId)
 	{
-		this.category_id=category_id;
+		this.categoryId = categoryId;
 	}
-	public Long getCategory_id()
+	public Long getCategoryId()
 	{
-		return this.category_id;
+		return this.categoryId;
 	}
 	public void setName(String name)
 	{
@@ -106,45 +90,45 @@ public class Setmeal
 	{
 		return this.image;
 	}
-	public void setCreate_time(Date create_time)
+	public void setCreateTime(Date createTime)
 	{
-		this.create_time=create_time;
+		this.createTime = createTime;
 	}
-	public Date getCreate_time()
+	public Date getCreateTime()
 	{
-		return this.create_time;
+		return this.createTime;
 	}
-	public void setUpdate_time(Date update_time)
+	public void setUpdateTime(Date updateTime)
 	{
-		this.update_time=update_time;
+		this.updateTime = updateTime;
 	}
-	public Date getUpdate_time()
+	public Date getUpdateTime()
 	{
-		return this.update_time;
+		return this.updateTime;
 	}
-	public void setCreate_user(Long create_user)
+	public void setCreateUser(Long createUser)
 	{
-		this.create_user=create_user;
+		this.createUser = createUser;
 	}
-	public Long getCreate_user()
+	public Long getCreateUser()
 	{
-		return this.create_user;
+		return this.createUser;
 	}
-	public void setUpdate_user(Long update_user)
+	public void setUpdateUser(Long updateUser)
 	{
-		this.update_user=update_user;
+		this.updateUser = updateUser;
 	}
-	public Long getUpdate_user()
+	public Long getUpdateUser()
 	{
-		return this.update_user;
+		return this.updateUser;
 	}
-	public void setIs_deleted(Integer is_deleted)
+	public void setIsDeleted(Integer isDeleted)
 	{
-		this.is_deleted=is_deleted;
+		this.isDeleted = isDeleted;
 	}
-	public Integer getIs_deleted()
+	public Integer getIsDeleted()
 	{
-		return this.is_deleted;
+		return this.isDeleted;
 	}
 
 } 

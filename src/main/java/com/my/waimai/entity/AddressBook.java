@@ -1,51 +1,36 @@
 package com.my.waimai.entity;
 
-import af.sql.annotation.AFCOLUMNS; 
-import af.sql.annotation.AFTABLE; 
+
 import java.util.Date; 
 
-/** 本类由 POJO生成器 自动生成于 2022-08-07 10:39:58
-    作者：阿发你好      官网: http://afanihao.cn 
-*/ 
 
-/** INSERT语句 ( 预处理方式 ) 
-  INSERT INTO `address_book`
-        (`id`, `user_id`, `consignee`, `sex`, `phone`, `province_code`, `province_name`, `city_code`, `city_name`, `district_code`, `district_name`, `detail`, `label`, `is_default`, `create_time`, `update_time`, `create_user`, `update_user`, `is_deleted`) 
-  VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
-*/ 
-
-/** INSERT语句 ( MyBatis方式 ) 
-  INSERT INTO `address_book`
-        (`id`, `user_id`, `consignee`, `sex`, `phone`, `province_code`, `province_name`, `city_code`, `city_name`, `district_code`, `district_name`, `detail`, `label`, `is_default`, `create_time`, `update_time`, `create_user`, `update_user`, `is_deleted`) 
-  VALUES(#{id}, #{user_id}, #{consignee}, #{sex}, #{phone}, #{province_code}, #{province_name}, #{city_code}, #{city_name}, #{district_code}, #{district_name}, #{detail}, #{label}, #{is_default}, #{create_time}, #{update_time}, #{create_user}, #{update_user}, #{is_deleted}) 
-
+/**
   自增主键: 无
 */ 
 
-@AFTABLE(name="address_book")  
-@AFCOLUMNS() 
+
 public class AddressBook 
 { 
  
-	public Long id ; 
-	public Long user_id ; 
-	public String consignee ; 
-	public Byte sex ; 
-	public String phone ; 
-	public String province_code ; 
-	public String province_name ; 
-	public String city_code ; 
-	public String city_name ; 
-	public String district_code ; 
-	public String district_name ; 
-	public String detail ; 
-	public String label ; 
-	public Boolean is_default ; 
-	public Date create_time ; 
-	public Date update_time ; 
-	public Long create_user ; 
-	public Long update_user ; 
-	public Integer is_deleted ; 
+	private Long id ;
+	private Long userId;
+	private String consignee ;
+	private Byte sex ;
+	private String phone ;
+	private String provinceCode;
+	private String provinceName;
+	private String cityCode;
+	private String cityName;
+	private String districtCode;
+	private String districtName;
+	private String detail ;
+	private String label ;
+	private Boolean isDefault;
+	private Date createTime;
+	private Date updateTime;
+	private Long createUser;
+	private Long updateUser;
+	private Integer isDeleted;
 
 
 	public void setId(Long id)
@@ -56,13 +41,13 @@ public class AddressBook
 	{
 		return this.id;
 	}
-	public void setUser_id(Long user_id)
+	public void setUserId(Long userId)
 	{
-		this.user_id=user_id;
+		this.userId = userId;
 	}
-	public Long getUser_id()
+	public Long getUserId()
 	{
-		return this.user_id;
+		return this.userId;
 	}
 	public void setConsignee(String consignee)
 	{
@@ -88,53 +73,53 @@ public class AddressBook
 	{
 		return this.phone;
 	}
-	public void setProvince_code(String province_code)
+	public void setProvinceCode(String provinceCode)
 	{
-		this.province_code=province_code;
+		this.provinceCode = provinceCode;
 	}
-	public String getProvince_code()
+	public String getProvinceCode()
 	{
-		return this.province_code;
+		return this.provinceCode;
 	}
-	public void setProvince_name(String province_name)
+	public void setProvinceName(String provinceName)
 	{
-		this.province_name=province_name;
+		this.provinceName = provinceName;
 	}
-	public String getProvince_name()
+	public String getProvinceName()
 	{
-		return this.province_name;
+		return this.provinceName;
 	}
-	public void setCity_code(String city_code)
+	public void setCityCode(String cityCode)
 	{
-		this.city_code=city_code;
+		this.cityCode = cityCode;
 	}
-	public String getCity_code()
+	public String getCityCode()
 	{
-		return this.city_code;
+		return this.cityCode;
 	}
-	public void setCity_name(String city_name)
+	public void setCityName(String cityName)
 	{
-		this.city_name=city_name;
+		this.cityName = cityName;
 	}
-	public String getCity_name()
+	public String getCityName()
 	{
-		return this.city_name;
+		return this.cityName;
 	}
-	public void setDistrict_code(String district_code)
+	public void setDistrictCode(String districtCode)
 	{
-		this.district_code=district_code;
+		this.districtCode = districtCode;
 	}
-	public String getDistrict_code()
+	public String getDistrictCode()
 	{
-		return this.district_code;
+		return this.districtCode;
 	}
-	public void setDistrict_name(String district_name)
+	public void setDistrictName(String districtName)
 	{
-		this.district_name=district_name;
+		this.districtName = districtName;
 	}
-	public String getDistrict_name()
+	public String getDistrictName()
 	{
-		return this.district_name;
+		return this.districtName;
 	}
 	public void setDetail(String detail)
 	{
@@ -152,53 +137,53 @@ public class AddressBook
 	{
 		return this.label;
 	}
-	public void setIs_default(Boolean is_default)
+	public void setIsDefault(Boolean isDefault)
 	{
-		this.is_default=is_default;
+		this.isDefault = isDefault;
 	}
-	public Boolean getIs_default()
+	public Boolean getIsDefault()
 	{
-		return this.is_default;
+		return this.isDefault;
 	}
-	public void setCreate_time(Date create_time)
+	public void setCreateTime(Date createTime)
 	{
-		this.create_time=create_time;
+		this.createTime = createTime;
 	}
-	public Date getCreate_time()
+	public Date getCreateTime()
 	{
-		return this.create_time;
+		return this.createTime;
 	}
-	public void setUpdate_time(Date update_time)
+	public void setUpdateTime(Date updateTime)
 	{
-		this.update_time=update_time;
+		this.updateTime = updateTime;
 	}
-	public Date getUpdate_time()
+	public Date getUpdateTime()
 	{
-		return this.update_time;
+		return this.updateTime;
 	}
-	public void setCreate_user(Long create_user)
+	public void setCreateUser(Long createUser)
 	{
-		this.create_user=create_user;
+		this.createUser = createUser;
 	}
-	public Long getCreate_user()
+	public Long getCreateUser()
 	{
-		return this.create_user;
+		return this.createUser;
 	}
-	public void setUpdate_user(Long update_user)
+	public void setUpdateUser(Long updateUser)
 	{
-		this.update_user=update_user;
+		this.updateUser = updateUser;
 	}
-	public Long getUpdate_user()
+	public Long getUpdateUser()
 	{
-		return this.update_user;
+		return this.updateUser;
 	}
-	public void setIs_deleted(Integer is_deleted)
+	public void setIsDeleted(Integer isDeleted)
 	{
-		this.is_deleted=is_deleted;
+		this.isDeleted = isDeleted;
 	}
-	public Integer getIs_deleted()
+	public Integer getIsDeleted()
 	{
-		return this.is_deleted;
+		return this.isDeleted;
 	}
 
 } 

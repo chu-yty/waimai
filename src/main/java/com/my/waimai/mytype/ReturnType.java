@@ -1,4 +1,4 @@
-package com.my.waimai.returntype;
+package com.my.waimai.mytype;
 
 import java.util.List;
 

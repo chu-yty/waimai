@@ -449,7 +449,8 @@
                 let params = {...this.ruleForm}
                 // params.flavors = this.dishFlavors
                 params.status = this.ruleForm ? 1 : 0
-                params.price *= 100
+                // params.price *= 100
+                params.price
                 params.categoryId = this.ruleForm.categoryId
                 params.flavors = this.dishFlavors.map(obj => ({ ...obj, value: JSON.stringify(obj.value) }))
                 delete params.dishFlavors
@@ -508,7 +509,7 @@
           handleAvatarSuccess (response, file, fileList) {
             // 拼接down接口预览
             if(response.code === 0 && response.msg === '未登录'){
-              window.top.location.href = '/backend/page/login/login.html'
+              window.top.location.href = '../login/login.html'
             }else{
               this.imageUrl = `/common/download?name=${response.data}`
               this.ruleForm.image = response.data

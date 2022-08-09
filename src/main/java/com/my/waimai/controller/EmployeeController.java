@@ -1,12 +1,10 @@
 package com.my.waimai.controller;
 
-import com.alibaba.fastjson.JSON;
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.my.waimai.Factory.MySession;
 import com.my.waimai.common.R;
 import com.my.waimai.entity.Employee;
 import com.my.waimai.mapper.yonghuMapper;
-import com.my.waimai.returntype.ReturnType;
+import com.my.waimai.mytype.ReturnType;
 import com.my.waimai.servlice.EmployeeService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.session.SqlSession;
@@ -16,7 +14,6 @@ import org.springframework.util.DigestUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -35,7 +32,7 @@ public class EmployeeController {
         String password=employee.getPassword();
         password = DigestUtils.md5DigestAsHex(password.getBytes());
         String name=employee.getUsername();
-        Employee emp = MySession.mysession.getMapper(yonghuMapper.class).select(employee.getUsername());
+        Employee emp = MySession.mysession.getMapper(yonghuMapper.class).selectlogin(employee.getUsername());
 
 
 
@@ -110,14 +107,14 @@ public class EmployeeController {
     public R<ReturnType> selectall(int page, int pageSize, String name)
     {
         int start=(page-1)*pageSize;
-        int end=start+pageSize;
+
         if(name!=null) {
-            if (name.trim().isEmpty()) {
+            if (!name.trim().isEmpty()) {
                 name = "%"+name+"%";
             }
         }
-        List<Employee> employees  = MySession.getMapper(yonghuMapper.class).selectAll(start, end,name);
-        int coun=employees.size();
+        List<Employee> employees  = MySession.getMapper(yonghuMapper.class).selectAll(start, pageSize,name);
+        int coun=MySession.getMapper(yonghuMapper.class).select(name);
         return R.success(new ReturnType(coun,employees));
     }
     /*
@@ -138,7 +135,7 @@ public class EmployeeController {
         employee.setUpdateTime(new Date(System.currentTimeMillis()));
         employee.setUpdateUser(setID);
         Employee emp=MySession.getMapper(yonghuMapper.class).selectone(setID);
-        employee.setUsername(emp.getName());
+
         int coun=0;
         if(employee.getName()==null)
             coun = MySession.getMapper(yonghuMapper.class).update(employee);

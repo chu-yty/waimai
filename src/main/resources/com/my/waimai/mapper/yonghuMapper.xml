@@ -24,17 +24,27 @@
         from employee
 
             <if test="name != null">
-               where name like #{name} order By id asc  limit #{start},#{end}
+               where name like #{name} order By id asc  limit #{start},#{pageSize}
             </if>
             <if test="name == null">
-                order By id asc  limit #{start},#{end}
+                order By id asc  limit #{start},#{pageSize}
             </if>
 
             ;
 
 
     </select>
-<!--    基本信息修改-->
+
+    <select id="select" resultType="int">
+        select count(sex)
+        from employee
+        <if test="name != null">
+            where name like #{name}
+        </if>
+    ;
+
+    </select>
+    <!--    基本信息修改-->
     <update id="updaterow">
         update employee
         set  name= #{name},phone=#{phone} ,sex= #{sex},id_number = #{idNumber}, username=#{username},update_time = #{updateTime},update_user= #{updateUser}

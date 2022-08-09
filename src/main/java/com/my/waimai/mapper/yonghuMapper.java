@@ -12,9 +12,10 @@ public interface yonghuMapper {
 
     //查询用户（因用户名不能重复所以返回一条数据
     @Select("select * from employee where username = #{name}")
-    Employee select(@Param("name") String name);
+    Employee selectlogin (@Param("name") String name);
+    int select(@Param("name") String name);
 
-    List<Employee> selectAll(int start, int end , String name);
+    List<Employee> selectAll(int start, int pageSize , String name);
     int addstaff(Employee employee);
 
     int update(Employee employee);

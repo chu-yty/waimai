@@ -1,7 +1,11 @@
 package com.my.waimai.entity;
 
 
-import java.util.Date; 
+import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.TableField;
+
+import java.time.LocalDateTime;
+import java.util.Date;
 
 
 /**
@@ -17,10 +21,23 @@ public class Category
 	private Integer type ;
 	private String name ;
 	private Integer sort ;
-	private Date createTime;
-	private Date updateTime;
+
+	//创建时间
+	@TableField(fill = FieldFill.INSERT)
+	private LocalDateTime createTime;
+
+	//更新时间
+	@TableField(fill = FieldFill.INSERT_UPDATE)
+	private LocalDateTime updateTime;
+
+	//创建人
+	@TableField(fill = FieldFill.INSERT)
 	private Long createUser;
+
+	//修改人
+	@TableField(fill = FieldFill.INSERT_UPDATE)
 	private Long updateUser;
+
 
 
 	public void setId(Long id)
@@ -55,22 +72,23 @@ public class Category
 	{
 		return this.sort;
 	}
-	public void setCreateTime(Date createTime)
-	{
+
+	public LocalDateTime getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime(LocalDateTime createTime) {
 		this.createTime = createTime;
 	}
-	public Date getCreateTime()
-	{
-		return this.createTime;
+
+	public LocalDateTime getUpdateTime() {
+		return updateTime;
 	}
-	public void setUpdateTime(Date updateTime)
-	{
+
+	public void setUpdateTime(LocalDateTime updateTime) {
 		this.updateTime = updateTime;
 	}
-	public Date getUpdateTime()
-	{
-		return this.updateTime;
-	}
+
 	public void setCreateUser(Long createUser)
 	{
 		this.createUser = createUser;

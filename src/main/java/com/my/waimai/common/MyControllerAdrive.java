@@ -1,6 +1,7 @@
 package com.my.waimai.common;
 
 import com.my.waimai.common.R;
+import com.my.waimai.myexception.DelException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -20,11 +21,28 @@ public class MyControllerAdrive {
     {
         //
         String message = ex.getMessage();
+        log.error(message);
         if(message.contains("Duplicate entry")) {
             String[] split = message.split(" ");
-            return R.success(split[3] + "已存在");
+            return R.error(split[2] + "已存在");
         }
-        return R.success("操作失败");
+        return R.error("操作失败");
 
     }
+
+    /**
+     * 自定义异常
+     * @param ex
+     * @return
+     */
+        @ExceptionHandler(DelException.class)
+        public R<String> DelException(DelException ex)
+        {
+            //
+            String message = ex.getMessage();
+            log.info(message);
+            return R.error(message);
+
+        }
+
 }

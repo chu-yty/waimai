@@ -24,8 +24,9 @@ public class MvcConfig extends WebMvcConfigurationSupport {
         registry.addResourceHandler("/front/**").addResourceLocations("classpath:/static/front/");
     }
 
-    /*
-        扩展小子转换器
+    /**
+     * 扩展mvc框架的消息转换器
+     * @param converters
      */
     @Override
     protected void extendMessageConverters(List<HttpMessageConverter<?>> converters) {

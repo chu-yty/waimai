@@ -2,6 +2,7 @@ package com.my.waimai.filter;
 
 import com.alibaba.fastjson.JSON;
 import com.my.waimai.Factory.MySession;
+import com.my.waimai.common.MyBaseContext;
 import com.my.waimai.common.R;
 import com.my.waimai.entity.Employee;
 import com.my.waimai.mapper.yonghuMapper;
@@ -20,6 +21,9 @@ import java.io.IOException;
 @WebFilter(filterName = "myfilter", urlPatterns = "/*")
 @Slf4j
 public class MyFilter implements Filter {
+
+
+    public static final AntPathMatcher PATH_MATCHER = new AntPathMatcher();
     @Override
     public void doFilter(ServletRequest servletRequest,
                          ServletResponse servletResponse,
@@ -27,21 +31,25 @@ public class MyFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
         HttpSession session = req.getSession();
-        String[] uris = {"/backend/page/login/login.html",
-                "/employee/login"};
+//        "/backend/page/login/login.html",
+        String[] uris = {
+                "/employee/login",
+                "/backend/**",
+                "/front/**"};
 
         String requestURI = req.getRequestURI();
 
         for (String uri : uris) {
-            if (uri.equals(requestURI)) {
+            if (PATH_MATCHER.match(uri, requestURI)) {
                 filterChain.doFilter(req, resp);
                 return;
             }
         }
-//          缺少注册页面白名单
+
+        Long id= (Long) session.getAttribute("employee");
         if (session.getAttribute("employee")!= null) {
             log.info("用户已登录");
-
+            MyBaseContext.setThreadLocal(id);
             filterChain.doFilter(req, resp);
             return;
         }

@@ -8,12 +8,13 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Slf4j
-@ServletComponentScan
 @SpringBootApplication
-
+@ServletComponentScan
+@EnableTransactionManagement
 public class WaimaiApplication {
     public static void main(String[] args) {
-        SpringApplication.run(WaimaiApplication.class,args);
+
+        SpringApplication.run(WaimaiApplication.class, args);
         log.info("项目启动成功");
     }
 }

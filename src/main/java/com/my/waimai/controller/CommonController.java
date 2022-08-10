@@ -24,7 +24,7 @@ import java.util.UUID;
 public class CommonController {
 
 //    @Value("${reggie.path}")
-    @Value("E:\\tupianPath")
+    @Value("${waimai.Path}")
     private String basePath;
 
     /**
@@ -51,7 +51,7 @@ public class CommonController {
             file1.mkdirs();
         }
         try{
-            file.transferTo(new File(basePath+"/"+filename));
+            file.transferTo(new File(basePath+filename));
         }catch (IOException ex)
         {
             ex.printStackTrace();
@@ -71,7 +71,7 @@ public class CommonController {
     public void gettupian(String name, HttpServletResponse resp) {
 
         try {
-            InputStream inputStream=new FileInputStream(new File(basePath+"/"+name));
+            InputStream inputStream=new FileInputStream(new File(basePath+name));
             OutputStream outputStream = resp.getOutputStream();
             int ent=0;
             byte [] bytes=new byte[1024*8];

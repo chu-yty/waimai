@@ -18,7 +18,9 @@ import java.util.List;
 
 @Data
 public class DishAndDishFlavor extends Dish {
-    private List<DishFlavor> flavors;
+    private List<DishFlavor> flavors=new ArrayList<>();
+    private Integer copies;
+    private String categoryName;
 
 
 

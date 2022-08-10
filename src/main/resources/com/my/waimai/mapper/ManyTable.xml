@@ -1,0 +1,42 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.my.waimai.mapper.ManyTable">
+<!--<resultMap id="DishAndDishFlavor" type="com.my.waimai.mytype.DishAndDishFlavor">-->
+<!--    <result column="name1" property="categoryName"/>-->
+
+
+
+
+<!--</resultMap>-->
+
+    <select id="select" resultType="com.my.waimai.mytype.DishAndDishFlavor" >
+        SELECT
+        a.* , b.`name` as categoryName
+        FROM
+        <if test="name == null">
+            dish AS a left join category AS b
+            ON
+            a.category_id = b.id
+            order By sort asc  limit #{start},#{pageSize}
+        </if>
+
+        <if test="name !=null">
+            (select * from dish where name like #{name}) AS a left join category AS b
+            ON
+            a.category_id = b.id
+            order By sort asc  limit #{start},#{pageSize}
+        </if>
+
+    </select>
+    <select id="getcoun" resultType="java.lang.Integer">
+        select count(id)
+        from dish
+        <if test="name != null">
+            where name like #{name}
+        </if>
+        ;
+
+
+    </select>
+</mapper>

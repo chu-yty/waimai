@@ -1,6 +1,8 @@
 import com.my.waimai.Factory.MySession;
 import com.my.waimai.entity.Employee;
+import com.my.waimai.mapper.ManyTable;
 import com.my.waimai.mapper.yonghuMapper;
+import com.my.waimai.mytype.DishAndDishFlavor;
 import net.sf.jsqlparser.expression.DateTimeLiteralExpression;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -31,8 +33,10 @@ public class test {
             SqlSessionFactory sessionFactory=new SqlSessionFactoryBuilder().build(stream);
             SqlSession session = sessionFactory.openSession();
 
-        List<Employee> employees  = MySession.getMapper(yonghuMapper.class).selectAll(2, 2,null);
-        System.out.println(employees);
+        List<DishAndDishFlavor> employees  = MySession.getMapper(ManyTable.class).select(0,50,null);
+        int getcoun = MySession.getMapper(ManyTable.class).getcoun(null);
+
+        System.out.println(getcoun);
 
 
         //初始密码123456

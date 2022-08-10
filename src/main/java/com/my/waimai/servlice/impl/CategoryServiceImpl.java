@@ -4,30 +4,30 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.my.waimai.entity.Category;
 import com.my.waimai.entity.Dish;
-import com.my.waimai.entity.DishFlavor;
+
 import com.my.waimai.entity.Setmeal;
 import com.my.waimai.mapper.CategoryMapper;
 import com.my.waimai.myexception.DelException;
 import com.my.waimai.servlice.CategoryService;
 import com.my.waimai.servlice.DishFlavorService;
 import com.my.waimai.servlice.DishService;
+import com.my.waimai.servlice.SetmealService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> implements CategoryService {
     @Autowired
     private DishService dishService;
     @Autowired
-    private DishFlavorService dishFlavorService;
-    @Autowired
-    private SetmealServiceImpl setmealService;
+    private SetmealService setmealService;
     /**
      * 自定义删除分类
      * @param id
      */
 
-    @Override
+
     public void Remove(Long id) {
         //创建构造器
         LambdaQueryWrapper<Dish> lambdaQueryWrapper =new LambdaQueryWrapper<>();

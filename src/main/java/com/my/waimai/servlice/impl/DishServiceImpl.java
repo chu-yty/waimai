@@ -10,6 +10,7 @@ import com.my.waimai.servlice.DishFlavorService;
 import com.my.waimai.servlice.DishService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -17,13 +18,14 @@ import java.util.stream.Collectors;
 @Service
 public class DishServiceImpl extends ServiceImpl<DishMapper, Dish> implements DishService {
     @Autowired
-    private  static DishFlavorService dishFlavorService;
+    private  DishFlavorService dishFlavorService;
 
     /**
      * 添加菜品
      * @param dish
      */
-    @Override
+
+    @Transactional
     public void updata(DishAndDishFlavor dish) {
 
         //储存菜品基本信息
@@ -41,5 +43,15 @@ public class DishServiceImpl extends ServiceImpl<DishMapper, Dish> implements Di
 //            df.setIsDeleted(0);
 //        }
         dishFlavorService.saveBatch(flavors);
+    }
+
+    @Override
+    public void removedish(List<Long> dis) {
+
+
+
+
+        dishFlavorService.removeByIds(dis);
+
     }
 }

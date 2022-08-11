@@ -6,4 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface DishMapper extends BaseMapper<Dish> {
+    void updateStatus1 (Long id);
+    void updateStatus0 (Long id);
+
 }

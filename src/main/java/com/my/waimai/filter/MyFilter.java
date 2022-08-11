@@ -38,7 +38,7 @@ public class MyFilter implements Filter {
                 "/front/**"};
 
         String requestURI = req.getRequestURI();
-
+        log.info("请求URI{}",requestURI);
         for (String uri : uris) {
             if (PATH_MATCHER.match(uri, requestURI)) {
                 filterChain.doFilter(req, resp);

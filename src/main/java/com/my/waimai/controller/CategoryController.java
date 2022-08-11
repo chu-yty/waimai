@@ -22,11 +22,7 @@ public class CategoryController {
     private CategoryService categoryService;
 
 
-    /**
-     * 新增分类
-     * @param category
-     * @return
-     */
+
     /**
      * 添加操作
      * @param category
@@ -59,7 +55,7 @@ public class CategoryController {
         //排序构造器
         queryWrapper.orderByAsc(Category::getSort);
         //执行分页查询
-        categoryService.page(pageInfo,queryWrapper);
+        categoryService.page(pageInfo, queryWrapper);
 
         return  R.success(pageInfo);
     }

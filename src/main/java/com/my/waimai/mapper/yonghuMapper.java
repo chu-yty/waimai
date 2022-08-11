@@ -1,13 +1,14 @@
 package com.my.waimai.mapper;
 
 import com.my.waimai.entity.Employee;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-
+@Mapper
 public interface yonghuMapper {
 
     //查询用户（因用户名不能重复所以返回一条数据

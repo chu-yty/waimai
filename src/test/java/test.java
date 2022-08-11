@@ -1,6 +1,7 @@
 import com.my.waimai.Factory.MySession;
 import com.my.waimai.entity.Employee;
 import com.my.waimai.mapper.ManyTable;
+import com.my.waimai.mapper.SetmealDtoMapper;
 import com.my.waimai.mapper.yonghuMapper;
 import com.my.waimai.mytype.DishAndDishFlavor;
 import net.sf.jsqlparser.expression.DateTimeLiteralExpression;
@@ -10,6 +11,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.joda.time.DateTime;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.DigestUtils;
 
 import java.io.IOException;
@@ -22,21 +24,24 @@ import java.util.Date;
 import java.util.List;
 
 public class test {
+
+    @Autowired
+   public SetmealDtoMapper setmealDtoMapper;
     @Test
     public static void main(String[] args) throws IOException {
 
 
 
 
-            String config="mybatis-config.xml";
-            InputStream stream= Resources.getResourceAsStream(config);
-            SqlSessionFactory sessionFactory=new SqlSessionFactoryBuilder().build(stream);
-            SqlSession session = sessionFactory.openSession();
-
-        List<DishAndDishFlavor> employees  = MySession.getMapper(ManyTable.class).select(0,50,null);
-        int getcoun = MySession.getMapper(ManyTable.class).getcoun(null);
-
-        System.out.println(getcoun);
+//            String config="mybatis-config.xml";
+//            InputStream stream= Resources.getResourceAsStream(config);
+//            SqlSessionFactory sessionFactory=new SqlSessionFactoryBuilder().build(stream);
+//            SqlSession session = sessionFactory.openSession();
+//
+//        List<DishAndDishFlavor> employees  = MySession.getMapper(ManyTable.class).select(0,50,null);
+//        int getcoun = MySession.getMapper(ManyTable.class).getcoun(null);
+//
+//        System.out.println(getcoun);
 
 
         //初始密码123456

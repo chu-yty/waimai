@@ -24,7 +24,7 @@ import java.util.UUID;
 public class CommonController {
 
 //    @Value("${reggie.path}")
-    @Value("${waimai.Path}")
+@Value("${waimai.Path}")
     private String basePath;
 
     /**

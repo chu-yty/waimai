@@ -1,0 +1,27 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.my.waimai.mapper.SetmealDtoMapper">
+
+
+    <select id="select" resultType="com.my.waimai.mytype.SetmealDto">
+        SELECT
+        a.*,b.name AS categoryName
+        FROM
+        <if test="name == null">
+            setmeal AS a LEFT JOIN category AS b
+            ON
+            a.category_id = b.id
+            order By sort asc  limit #{start},#{pageSize}
+        </if>
+
+        <if test="name !=null">
+            (select * from setmeal where name like #{name}) AS a left join category AS b
+            ON
+            a.category_id = b.id
+            order By sort asc  limit #{start},#{pageSize}
+        </if>
+
+    </select>
+</mapper>

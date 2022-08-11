@@ -1,123 +1,38 @@
 package com.my.waimai.entity;
 
 
-import java.util.Date; 
+import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.TableField;
+import lombok.Data;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.util.Date;
 
 /**
   自增主键: 无
 */ 
 
-
-public class SetmealDish 
-{ 
- 
+@Data
+public class SetmealDish implements Serializable
+{
+	private static final long serialVersionUID = 1L;
 	public Long id ; 
-	public String setmealId;
+	public Long setmealId;
 	public String dishId;
 	public String name ; 
 	public String price ; 
 	public Integer copies ; 
-	public Integer sort ; 
-	public Date createTime;
-	public Date updateTime;
+	public Integer sort ;
+	@TableField(fill = FieldFill.INSERT )
+	public LocalDateTime createTime;
+	@TableField(fill=FieldFill.INSERT_UPDATE)
+	public LocalDateTime updateTime;
+	@TableField(fill = FieldFill.INSERT )
 	public Long createUser;
+	@TableField(fill = FieldFill.INSERT_UPDATE )
 	public Long updateUser;
 	public Integer isDeleted;
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getSetmealId() {
-		return setmealId;
-	}
-
-	public void setSetmealId(String setmealId) {
-		this.setmealId = setmealId;
-	}
-
-	public String getDishId() {
-		return dishId;
-	}
-
-	public void setDishId(String dishId) {
-		this.dishId = dishId;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getPrice() {
-		return price;
-	}
-
-	public void setPrice(String price) {
-		this.price = price;
-	}
-
-	public Integer getCopies() {
-		return copies;
-	}
-
-	public void setCopies(Integer copies) {
-		this.copies = copies;
-	}
-
-	public Integer getSort() {
-		return sort;
-	}
-
-	public void setSort(Integer sort) {
-		this.sort = sort;
-	}
-
-	public Date getCreateTime() {
-		return createTime;
-	}
-
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
-	}
-
-	public Date getUpdateTime() {
-		return updateTime;
-	}
-
-	public void setUpdateTime(Date updateTime) {
-		this.updateTime = updateTime;
-	}
-
-	public Long getCreateUser() {
-		return createUser;
-	}
-
-	public void setCreateUser(Long createUser) {
-		this.createUser = createUser;
-	}
-
-	public Long getUpdateUser() {
-		return updateUser;
-	}
-
-	public void setUpdateUser(Long updateUser) {
-		this.updateUser = updateUser;
-	}
-
-	public Integer getIsDeleted() {
-		return isDeleted;
-	}
-
-	public void setIsDeleted(Integer isDeleted) {
-		this.isDeleted = isDeleted;
-	}
 }
  

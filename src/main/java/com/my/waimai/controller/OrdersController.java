@@ -9,9 +9,7 @@ import com.my.waimai.entity.Orders;
 import com.my.waimai.servlice.OrdersService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 
@@ -39,4 +37,25 @@ public class OrdersController {
 
         return R.success(page1);
     }
+
+    /**
+     * 分页查询
+     */
+    @GetMapping("/userPage")
+    public R<Page> getpage(int page, int pageSize )
+    {
+        Page<Orders> page1= new Page<>(page,pageSize);
+        LambdaQueryWrapper<Orders> lambda = new LambdaQueryWrapper<>();
+        lambda.orderByDesc(Orders::getCheckoutTime);
+        ordersService.page(page1);
+        return R.success(page1);
+    }
+
+    @PostMapping("/submit")
+    public R<String> submit(@RequestBody Orders orders)
+    {
+        ordersService.submit(orders);
+        return R.success("下单成功");
+    }
+
 }

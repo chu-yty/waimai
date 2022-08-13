@@ -9,7 +9,14 @@ spring:
       driver-class-name: com.mysql.cj.jdbc.Driver
       url: jdbc:mysql://localhost:3306/reggie?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
       username: root
-      password: 
+      password:
+
+#     qq邮箱发送邮件权限
+  mail:
+    host: smtp.qq.com
+    username: 1448020222@qq.com #发送方qq号
+    password: ykdejzkqrqbzjebh  #授权码  qq邮箱生成的
+    default-encoding: utf-8
 mybatis-plus:
   configuration:
     #在映射实体或者属性时，将数据库中表名和字段名中的下划线去掉，按照驼峰命名法映射
@@ -21,4 +28,5 @@ mybatis-plus:
 
 waimai:
   Path: E:\tupianPath\
+
 

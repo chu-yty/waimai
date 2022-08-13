@@ -5,6 +5,13 @@ function loginApi(data) {
       data
     })
   }
+function logincodeApi(data){
+    return $axios({
+        'url': '/user/email',
+        'method': 'post',
+        params: { email: data.email }
+    })
+}
 
 function loginoutApi() {
   return $axios({

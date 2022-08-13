@@ -5,4 +5,5 @@ import com.my.waimai.entity.Orders;
 import com.my.waimai.mapper.OrdersMapper;
 
 public interface OrdersService extends IService< Orders> {
+    public void submit(Orders orders);
 }

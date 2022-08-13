@@ -33,6 +33,7 @@ public class MyFilter implements Filter {
         HttpSession session = req.getSession();
 //        "/backend/page/login/login.html",
         String[] uris = {
+                "/user/**",
                 "/employee/login",
                 "/backend/**",
                 "/front/**"};
@@ -48,12 +49,19 @@ public class MyFilter implements Filter {
 
         Long id= (Long) session.getAttribute("employee");
         if (session.getAttribute("employee")!= null) {
-            log.info("用户已登录");
+            log.info("后台已登录");
             MyBaseContext.setThreadLocal(id);
             filterChain.doFilter(req, resp);
             return;
         }
         log.info("用户未登录");
+        Long yonghuid= (Long) session.getAttribute("user");
+        if (session.getAttribute("user")!= null) {
+            log.info("客户已登录");
+            MyBaseContext.setThreadLocal(yonghuid);
+            filterChain.doFilter(req, resp);
+            return;
+        }
         //5、如果未登录则返回未登录结果，通过输出流方式向客户端页面响应数据
         resp.getWriter().write(JSON.toJSONString(R.error("NOTLOGIN")));
         return;

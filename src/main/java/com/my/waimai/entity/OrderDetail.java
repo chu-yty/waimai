@@ -1,15 +1,20 @@
 package com.my.waimai.entity;
 
 
+import lombok.Data;
+
+import java.io.Serializable;
+import java.math.BigDecimal;
+
 /**
 
   自增主键: 无
 */ 
 
-
-public class OrderDetail 
-{ 
- 
+@Data
+public class OrderDetail implements Serializable
+{
+	private static final long serialVersionUID = 1L;
 	private Long id ;
 	private String name ;
 	private String image ;
@@ -18,81 +23,8 @@ public class OrderDetail
 	private Long setmealId;
 	private String dishFlavor;
 	private Integer number ;
-	private String amount ;
+	private BigDecimal amount ;
 
-
-	public void setId(Long id)
-	{
-		this.id=id;
-	}
-	public Long getId()
-	{
-		return this.id;
-	}
-	public void setName(String name)
-	{
-		this.name=name;
-	}
-	public String getName()
-	{
-		return this.name;
-	}
-	public void setImage(String image)
-	{
-		this.image=image;
-	}
-	public String getImage()
-	{
-		return this.image;
-	}
-	public void setOrderId(Long orderId)
-	{
-		this.orderId = orderId;
-	}
-	public Long getOrderId()
-	{
-		return this.orderId;
-	}
-	public void setDishId(Long dishId)
-	{
-		this.dishId = dishId;
-	}
-	public Long getDishId()
-	{
-		return this.dishId;
-	}
-	public void setSetmealId(Long setmealId)
-	{
-		this.setmealId = setmealId;
-	}
-	public Long getSetmealId()
-	{
-		return this.setmealId;
-	}
-	public void setDishFlavor(String dishFlavor)
-	{
-		this.dishFlavor = dishFlavor;
-	}
-	public String getDishFlavor()
-	{
-		return this.dishFlavor;
-	}
-	public void setNumber(Integer number)
-	{
-		this.number=number;
-	}
-	public Integer getNumber()
-	{
-		return this.number;
-	}
-	public void setAmount(String amount)
-	{
-		this.amount=amount;
-	}
-	public String getAmount()
-	{
-		return this.amount;
-	}
 
 } 
  

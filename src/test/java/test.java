@@ -22,6 +22,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 public class test {
 
@@ -31,6 +32,12 @@ public class test {
     public static void main(String[] args) throws IOException {
 
 
+
+            //随机生成6位数字验证码
+            Random random = new Random();
+            int randomNum = random.nextInt(1000000);//0-999999  000023  456 99898
+            String randomCode = String.format("%06d", randomNum);//格式化
+        System.out.println(randomCode);
 
 
 //            String config="mybatis-config.xml";

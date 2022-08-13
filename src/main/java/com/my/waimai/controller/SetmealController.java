@@ -131,6 +131,21 @@ public class SetmealController {
         return  R.success("操作成功");
     }
 
+    /**
+     * 根据状态和套餐分类ID查询套餐
+     * @param categoryId
+     * @param status
+     * @return
+     */
+    @GetMapping("/list")
+    public R<List<Setmeal>> getlist(Long categoryId , int status)
+    {
+        LambdaQueryWrapper<Setmeal> lambda = new LambdaQueryWrapper<>();
+        lambda.eq(Setmeal::getCategoryId,categoryId);
+        lambda.eq(Setmeal::getStatus,status);
+        List<Setmeal> list = setmealService.list(lambda);
+        return R.success(list);
+    }
 
 
 

@@ -1,9 +1,12 @@
 package com.my.waimai.entity;
 
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 
@@ -18,13 +21,14 @@ public class Orders  implements Serializable
 	private Long id ;
 	private String number ;
 	private Integer status ;
+
 	private Long userId;
 	private Long addressBookId;
-	private LocalDateTime orderTime;
 
+	private LocalDateTime orderTime;
 	private LocalDateTime checkoutTime;
 	private Integer payMethod;
-	private String amount ;
+	private BigDecimal amount ;
 	private String remark ;
 	private String phone ;
 	private String address ;

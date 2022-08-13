@@ -12,11 +12,13 @@ import com.my.waimai.Factory.MySession;
 import com.my.waimai.common.R;
 import com.my.waimai.entity.Category;
 import com.my.waimai.entity.Dish;
+import com.my.waimai.entity.DishFlavor;
 import com.my.waimai.mapper.DishMapper;
 import com.my.waimai.mapper.ManyTable;
 import com.my.waimai.mytype.DishAndDishFlavor;
 import com.my.waimai.mytype.ReturnType;
 import com.my.waimai.servlice.CategoryService;
+import com.my.waimai.servlice.DishFlavorService;
 import com.my.waimai.servlice.DishService;
 
 import com.my.waimai.servlice.SetmealService;
@@ -44,6 +46,9 @@ public class DishController {
     private SetmealService setmealService;
     @Autowired
     private DishService dishService;
+
+    @Autowired
+    private DishFlavorService dishFlavorService;
     @Autowired
     private CategoryService categoryService;
     @Autowired
@@ -188,7 +193,7 @@ public class DishController {
      * @return
      */
     @GetMapping("/list")
-    public R<List<Dish>> getDishList(Long categoryId ,String name)
+    public R<List<DishAndDishFlavor>> getDishList(Long categoryId ,String name)
     {
         LambdaQueryWrapper<Dish> lambdaQueryWrapper=new LambdaQueryWrapper<>();
         lambdaQueryWrapper.eq(categoryId !=null,Dish::getCategoryId, categoryId);
@@ -196,7 +201,18 @@ public class DishController {
         lambdaQueryWrapper.eq(Dish::getStatus,1);
 
         List<Dish> list = dishService.list(lambdaQueryWrapper);
-        return R.success(list);
+        List<DishAndDishFlavor> list1 = list.stream().map((dish)->{
+            DishAndDishFlavor dishAndDishFlavor=new DishAndDishFlavor();
+            LambdaQueryWrapper<DishFlavor> lambda=new LambdaQueryWrapper<>();
+            lambda.eq(DishFlavor::getDishId,dish.getId());
+            List<DishFlavor> one = dishFlavorService.list(lambda);
+            BeanUtils.copyProperties(dish,dishAndDishFlavor);
+            dishAndDishFlavor.setFlavors(one);
+            return dishAndDishFlavor;
+        }).collect(Collectors.toList());
+
+
+        return R.success(list1);
     }
 
 

@@ -24,6 +24,7 @@ public class MyMetaObjectHendler implements MetaObjectHandler {
         metaObject.setValue("updateTime",LocalDateTime.now());
         metaObject.setValue("createUser", MyBaseContext.getMyThreadLocal());
         metaObject.setValue("updateUser", MyBaseContext.getMyThreadLocal());
+
     }
     /*
                修改操作自动更新公共字段
